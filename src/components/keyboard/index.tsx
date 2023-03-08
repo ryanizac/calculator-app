@@ -23,7 +23,7 @@ export function Keyboard(props: Keyboard.Props) {
       <Key name="+" />
       <Key name="0" large />
       <Key name="," />
-      <Key name="=" />
+      <Key name="=" orange />
     </View>
   );
 }

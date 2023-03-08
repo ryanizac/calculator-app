@@ -15,6 +15,9 @@ export const styles = StyleSheet.create({
     minWidth: 76,
     maxWidth: "50%",
   },
+  orangeContainer: {
+    backgroundColor: "#FF8600",
+  },
   name: {
     fontSize: 24,
     fontWeight: "500",

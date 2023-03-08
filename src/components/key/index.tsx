@@ -7,6 +7,7 @@ export function Key<Name extends string>(props: Key.Props<Name>) {
       style={[
         styles.container,
         props.large ? styles.largeContainer : undefined,
+        props.orange ? styles.orangeContainer : undefined,
       ]}
     >
       <Text style={styles.name}>{props.name}</Text>
@@ -18,5 +19,6 @@ export namespace Key {
   export type Props<Name extends string> = {
     name: Name;
     large?: boolean;
+    orange?: boolean;
   };
 }
