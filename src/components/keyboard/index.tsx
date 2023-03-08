@@ -21,7 +21,7 @@ export function Keyboard(props: Keyboard.Props) {
       <Key name="2" />
       <Key name="3" />
       <Key name="+" />
-      <Key name="0" />
+      <Key name="0" large />
       <Key name="," />
       <Key name="=" />
     </View>

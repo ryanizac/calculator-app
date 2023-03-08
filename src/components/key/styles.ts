@@ -9,6 +9,12 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  largeContainer: {
+    width: "auto",
+    flex: 3 / 4,
+    minWidth: 76,
+    maxWidth: "50%",
+  },
   name: {
     fontSize: 24,
     fontWeight: "500",

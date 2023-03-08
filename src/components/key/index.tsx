@@ -3,7 +3,12 @@ import { styles } from "./styles";
 
 export function Key<Name extends string>(props: Key.Props<Name>) {
   return (
-    <Pressable style={styles.container}>
+    <Pressable
+      style={[
+        styles.container,
+        props.large ? styles.largeContainer : undefined,
+      ]}
+    >
       <Text style={styles.name}>{props.name}</Text>
     </Pressable>
   );
@@ -12,5 +17,6 @@ export function Key<Name extends string>(props: Key.Props<Name>) {
 export namespace Key {
   export type Props<Name extends string> = {
     name: Name;
+    large?: boolean;
   };
 }
