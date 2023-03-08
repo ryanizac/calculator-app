@@ -9,6 +9,9 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  containerPressing: {
+    backgroundColor: "#414341",
+  },
   largeContainer: {
     width: "auto",
     flex: 3 / 4,
@@ -18,6 +21,7 @@ export const styles = StyleSheet.create({
   orangeContainer: {
     backgroundColor: "#FF8600",
   },
+
   name: {
     fontSize: 24,
     fontWeight: "500",
