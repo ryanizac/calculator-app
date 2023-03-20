@@ -1,4 +1,5 @@
 import { Keys } from "./keys";
+import { operators, Operators } from "./operators";
 
 export class CalculatorCore {
   static clear() {
@@ -27,6 +28,25 @@ export class CalculatorCore {
     return currentValue + ",";
   }
 
+  static isOperator(key: any): key is Operators {
+    return operators.includes(key);
+  }
+
+  static preventOperator(currentValue: string, key: Operators) {
+    const lastItem = currentValue.at(-1);
+
+    if (lastItem === undefined) {
+      return "0";
+    }
+
+    if (this.isOperator(lastItem)) {
+      const valueWithoutOperator = this.backspace(currentValue);
+      return valueWithoutOperator + key;
+    }
+
+    return currentValue + key;
+  }
+
   static Resolve(currentValue: string, key: Keys): string {
     if (key === "AC") {
       return this.clear();
@@ -38,6 +58,10 @@ export class CalculatorCore {
 
     if (key === ",") {
       return this.preventComma(currentValue);
+    }
+
+    if (this.isOperator(key)) {
+      return this.preventOperator(currentValue, key);
     }
 
     if (currentValue === "0") {
