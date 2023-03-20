@@ -1,23 +1,16 @@
 import { Keyboard, ResultArea, Template } from "@/components";
-import { CalculatorCore, Keys } from "@/core";
+import { useCalculator } from "@/hooks";
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React from "react";
 
 export function App() {
-  const [result, setResult] = useState("0");
-
-  function onPressKeys(key: Keys) {
-    setResult((prev) => {
-      const newValue = CalculatorCore.Resolve(prev, key);
-      return newValue;
-    });
-  }
+  const [result, updateResult] = useCalculator("0");
 
   return (
     <Template>
       <StatusBar style="light" />
       <ResultArea result={result} />
-      <Keyboard onPress={onPressKeys} />
+      <Keyboard onPress={updateResult} />
     </Template>
   );
 }
