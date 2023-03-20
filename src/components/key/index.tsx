@@ -1,4 +1,4 @@
-import { Keys } from "@/constants";
+import { Keys } from "@/core";
 import { useMixStyle } from "@/hooks";
 import { Pressable, Text } from "react-native";
 import { styles } from "./styles";

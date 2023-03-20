@@ -1,5 +1,5 @@
 import { Keyboard, ResultArea, Template } from "@/components";
-import { Keys } from "@/constants";
+import { Keys } from "@/core";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 

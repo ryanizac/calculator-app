@@ -1,4 +1,4 @@
-import { Keys } from "@/constants";
+import { Keys } from "@/core";
 import { View } from "react-native";
 import { Key } from "../key";
 import { styles } from "./styles";
