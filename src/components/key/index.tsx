@@ -26,6 +26,7 @@ export function Key<Name extends string>(props: Key.Props<Name>) {
       ]}
       onPressIn={onPressIn}
       onPressOut={onPressOut}
+      onPress={() => props.onPress?.(props.name)}
     >
       <Text style={styles.name}>{props.name}</Text>
     </Pressable>
@@ -37,5 +38,6 @@ export namespace Key {
     name: Name;
     large?: boolean;
     orange?: boolean;
+    onPress?: (key: Name) => void;
   };
 }
