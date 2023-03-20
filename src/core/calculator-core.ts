@@ -15,6 +15,14 @@ export class CalculatorCore {
     return newText;
   }
 
+  static preventComma(currentValue: string) {
+    if (currentValue.includes(",")) {
+      return currentValue;
+    }
+
+    return currentValue + ",";
+  }
+
   static Resolve(currentValue: string, key: Keys): string {
     if (key === "AC") {
       return this.clear();
@@ -22,6 +30,10 @@ export class CalculatorCore {
 
     if (key === "<-") {
       return this.backspace(currentValue);
+    }
+
+    if (key === ",") {
+      return this.preventComma(currentValue);
     }
 
     return currentValue + key;
