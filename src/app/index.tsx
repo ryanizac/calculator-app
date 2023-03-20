@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 
 export function App() {
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState("0");
 
   function onPressKeys(key: Keys) {
     setResult((prev) => {
