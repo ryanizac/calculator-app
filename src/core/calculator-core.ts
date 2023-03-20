@@ -39,6 +39,10 @@ export class CalculatorCore {
       return "0";
     }
 
+    if (currentValue === "0" && key === "-") {
+      return "-";
+    }
+
     if (this.isOperator(lastItem)) {
       const valueWithoutOperator = this.backspace(currentValue);
       return valueWithoutOperator + key;
