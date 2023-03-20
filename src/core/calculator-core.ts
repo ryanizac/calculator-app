@@ -20,6 +20,10 @@ export class CalculatorCore {
       return currentValue;
     }
 
+    if (currentValue.length === 0) {
+      return "0";
+    }
+
     return currentValue + ",";
   }
 
