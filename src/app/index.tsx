@@ -1,5 +1,5 @@
 import { Keyboard, ResultArea, Template } from "@/components";
-import { Keys } from "@/core";
+import { CalculatorCore, Keys } from "@/core";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 
@@ -7,7 +7,10 @@ export function App() {
   const [result, setResult] = useState("");
 
   function onPressKeys(key: Keys) {
-    setResult((prev) => prev + key);
+    setResult((prev) => {
+      const newValue = CalculatorCore.Resolve(prev, key);
+      return newValue;
+    });
   }
 
   return (
