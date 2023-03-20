@@ -1,3 +1,4 @@
+import { Keys } from "@/constants";
 import { View } from "react-native";
 import { Key } from "../key";
 import { styles } from "./styles";
@@ -30,6 +31,6 @@ export function Keyboard(props: Keyboard.Props) {
 
 export namespace Keyboard {
   export type Props = {
-    onPress?: (key: string) => void;
+    onPress?: (key: Keys) => void;
   };
 }

@@ -1,11 +1,12 @@
 import { Keyboard, ResultArea, Template } from "@/components";
+import { Keys } from "@/constants";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 
 export function App() {
   const [result, setResult] = useState("");
 
-  function onPressKeys(key: string) {
+  function onPressKeys(key: Keys) {
     setResult((prev) => prev + key);
   }
 

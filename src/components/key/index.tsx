@@ -1,8 +1,9 @@
+import { Keys } from "@/constants";
 import { useMixStyle } from "@/hooks";
 import { Pressable, Text } from "react-native";
 import { styles } from "./styles";
 
-export function Key<Name extends string>(props: Key.Props<Name>) {
+export function Key<Name extends Keys>(props: Key.Props<Name>) {
   const containerStyle = useMixStyle(styles.container);
 
   const onPressIn = () => {
@@ -34,7 +35,7 @@ export function Key<Name extends string>(props: Key.Props<Name>) {
 }
 
 export namespace Key {
-  export type Props<Name extends string> = {
+  export type Props<Name extends Keys> = {
     name: Name;
     large?: boolean;
     orange?: boolean;
