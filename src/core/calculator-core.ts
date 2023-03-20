@@ -74,12 +74,32 @@ export class CalculatorCore {
     const rawExpression = this.trimKeys(currentValue);
     const newValue: number = eval(rawExpression);
 
+    if (Number.isNaN(newValue)) {
+      return "Error";
+    }
+
     return newValue.toString();
+  }
+
+  static preventNaN(key: Keys) {
+    if (key === "-") {
+      return key;
+    }
+
+    if (this.isOperator(key) || key === "<-" || key === "AC") {
+      return "0";
+    }
+
+    return key;
   }
 
   static Resolve(currentValue: string, key: Keys): string {
     if (key === "AC") {
       return this.clear();
+    }
+
+    if (currentValue === "Error") {
+      return this.preventNaN(key);
     }
 
     if (key === "<-") {
