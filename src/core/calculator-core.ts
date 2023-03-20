@@ -62,15 +62,15 @@ export class CalculatorCore {
     return currentValue;
   }
 
-  static calculate(currentValue: string) {
+  static calculate(currentValue: string): string {
     if (!this.includeOperation(currentValue)) {
       return currentValue;
     }
 
     const rawExpression = this.trimKeys(currentValue);
-    const newValue = eval(rawExpression);
+    const newValue: number = eval(rawExpression);
 
-    return newValue;
+    return newValue.toString();
   }
 
   static Resolve(currentValue: string, key: Keys): string {
