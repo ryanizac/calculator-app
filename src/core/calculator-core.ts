@@ -40,6 +40,10 @@ export class CalculatorCore {
       return this.preventComma(currentValue);
     }
 
+    if (currentValue === "0") {
+      return key;
+    }
+
     return currentValue + key;
   }
 }
