@@ -47,6 +47,32 @@ export class CalculatorCore {
     return currentValue + key;
   }
 
+  static includeOperation(currentValue: string) {
+    return operators.find((item) => currentValue.includes(item)) !== undefined;
+  }
+
+  static trimKeys(currentValue: string) {
+    const lastIndex = currentValue.length - 1;
+    const lastValue = currentValue.at(lastIndex);
+
+    if (["%", "*", "/", "-", "+"].includes(lastValue)) {
+      return currentValue.slice(0, lastIndex);
+    }
+
+    return currentValue;
+  }
+
+  static calculate(currentValue: string) {
+    if (!this.includeOperation(currentValue)) {
+      return currentValue;
+    }
+
+    const rawExpression = this.trimKeys(currentValue);
+    const newValue = eval(rawExpression);
+
+    return newValue;
+  }
+
   static Resolve(currentValue: string, key: Keys): string {
     if (key === "AC") {
       return this.clear();
@@ -62,6 +88,10 @@ export class CalculatorCore {
 
     if (this.isOperator(key)) {
       return this.preventOperator(currentValue, key);
+    }
+
+    if (key === "=") {
+      return this.calculate(currentValue);
     }
 
     if (currentValue === "0") {
